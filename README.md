@@ -1,6 +1,12 @@
 
 # API Reference Update : 14/8/21
 
+## Install
+
+```
+$ npm i https://github.com/Teerut26/tapo-node.git
+```
+
 ## Import 
 
 ```javascript

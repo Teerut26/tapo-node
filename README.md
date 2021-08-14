@@ -1,5 +1,5 @@
 
-# API Reference Update : 13/8/21
+# API Reference Update : 14/8/21
 
 ## Import 
 
@@ -135,6 +135,26 @@ tapo.getPlayback("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX","20210801","20210813
     '20210811', '20210812',
     '20210813'
   ]
+}
+```
+
+#### getPresetConfig(deviceId)
+```javascript
+//example
+tapo.getPresetConfig("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX").then((result) => {
+  console.log(result)
+}).catch((err) => {
+  console.log(err)
+});
+
+
+//response
+{
+  read_only: [ '0', '0', '0' ],
+  name: [ 'XXX', 'XXX', 'XXX' ],
+  id: [ '1', '2', '3' ],
+  position_pan: [ '-0.373837', '0.911582', '0.359876' ],
+  position_tilt: [ '0.281407', '0.424623', '0.424623' ]
 }
 ```
 

@@ -214,6 +214,35 @@ class Tapo extends Config {
       )
     }));
   }
+
+  getPresetConfig(deviceId) {
+    var data = {
+      method: "passthrough",
+      params: {
+        deviceId,
+        requestData: {
+          method: "multipleRequest",
+          params: {
+            requests: [
+              {"method":"getPresetConfig","params":{"preset":{"name":["preset"]}}}
+            ],
+          },
+        },
+      },
+    };
+
+    var config = {
+      method: "post",
+      url: `${this.url}&token=${this.token}`,
+      headers: this.headers,
+      httpsAgent: new https.Agent({
+        rejectUnauthorized: false,
+      }),
+      data: data,
+    };
+    return axios(config).then((item) =>item.data.result.responseData.result.responses[0].result.preset.preset);
+  }
+
 }
 
 module.exports = { TapoLogin, Tapo };

@@ -10,7 +10,7 @@ $ npm i https://github.com/Teerut26/tapo-node.git
 ## Import 
 
 ```javascript
-const { TapoLogin, Tapo } = require("./modules.js");
+const { TapoLogin, Tapo } = require("tapo-node");
 ```
 ## Create Instance 
 

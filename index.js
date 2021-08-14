@@ -2,12 +2,11 @@ const axios = require("axios");
 const https = require("https");
 
 class Config {
-  constructor() {
+  constructor(appName="TP-Link_Tapo_Android",appVer="2.2.39",netType="wifi",termID="9C-A5-C0-F2-4C-81",locale="th-TH") {
     this.url =
-      "https://n-wap-gw.tplinkcloud.com/?appName=TP-Link_Tapo_Android&appVer=2.2.39&netType=wifi&termID=9C-A5-C0-F2-4C-81&ospf=Android%206.0.1&brand=TPLINK&locale=th_TH";
+      `https://n-wap-gw.tplinkcloud.com/?appName=${appName}&appVer=${appVer}&netType=${netType}&termID=${termID}&ospf=Android%206.0.1&brand=TPLINK&locale=${locale}`;
     this.headers = {
       "Content-Type": "application/json; charset=UTF-8",
-      // "Content-Length": "250",
       Host: "n-wap-gw.tplinkcloud.com",
       Connection: "close",
       "Accept-Encoding": "gzip, deflate",

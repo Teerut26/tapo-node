@@ -243,6 +243,63 @@ class Tapo extends Config {
     return axios(config).then((item) =>item.data.result.responseData.result.responses[0].result.preset.preset);
   }
 
+  setMotorMove(deviceId,x_coord,y_coord) {
+    var data = {
+      method: "passthrough",
+      params: {
+        deviceId,
+        requestData: {
+          method: "multipleRequest",
+          params: {
+            requests: [
+              {"method":"motorMove","params":{"motor":{"move":{x_coord,y_coord}}}}
+            ],
+          },
+        },
+      },
+    };
+
+    var config = {
+      method: "post",
+      url: `${this.url}&token=${this.token}`,
+      headers: this.headers,
+      httpsAgent: new https.Agent({
+        rejectUnauthorized: false,
+      }),
+      data: data,
+    };
+    return axios(config).then((item) =>item.data.result.responseData.result.responses[0]);
+  }
+  
+
+  setMotorMoveToPreset(deviceId,id) {
+    var data = {
+      method: "passthrough",
+      params: {
+        deviceId,
+        requestData: {
+          method: "multipleRequest",
+          params: {
+            requests: [
+              {"method":"motorMoveToPreset","params":{"preset":{"goto_preset":{id}}}}
+            ],
+          },
+        },
+      },
+    };
+
+    var config = {
+      method: "post",
+      url: `${this.url}&token=${this.token}`,
+      headers: this.headers,
+      httpsAgent: new https.Agent({
+        rejectUnauthorized: false,
+      }),
+      data: data,
+    };
+    return axios(config).then((item) =>item.data.result.responseData.result.responses[0]);
+  }
+
 }
 
 module.exports = { TapoLogin, Tapo };

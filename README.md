@@ -164,4 +164,41 @@ tapo.getPresetConfig("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX").then((result) =
 }
 ```
 
+#### setMotorMove(deviceId,x_coord,y_coord)
+```javascript
+//example
+tapo.setMotorMove("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX","-10","-10").then((result) => {
+  console.log(result)
+}).catch((err) => {
+  console.log(err)
+});
+
+
+//response
+{ 
+  result: {}, 
+  method: "motorMove", 
+  error_code: 0
+};
+```
+
+#### setMotorMoveToPreset(deviceId,preset_id)
+```javascript
+//example
+tapo.setMotorMoveToPreset("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX","1").then((result) => {
+  console.log(result)
+}).catch((err) => {
+  console.log(err)
+});
+
+
+
+//response
+{ 
+  result: {}, 
+  method: "motorMoveToPreset", 
+  error_code: 0
+};
+```
+
 
